@@ -1,0 +1,37 @@
+{% extends "tiendaonlineapp/base.html" %}
+{% load static %}
+
+
+{% block content %}
+{% for post in posts %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-lower">{{post.titulo}}</span>
+                </h2>
+                <div style='text-align: left; font-size: 0.8em;' class="section-heading-upper">Autor:
+                    {{post.autor}}&nbsp;&nbsp;&nbsp;&nbsp; {{post.categorias.all}}<br><br></div>
+                <p style="font-size: large;" class="mb-3">{{post.contenido}}
+                </p>
+                <span style="font-size: x-small;" ,class="section-heading-upper">Creacion: {{post.created}}<br>Ultima
+                    actualizacion: {{post.updated}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+<section>
+    <div style='width:75%; margin:auto; text-align: center; color: white;'>
+        Categorias:
+        {% for post in posts %}
+            {% for categoria in post.categorias.all %}
+                <a href="{% url 'categoria' categoria.id %}" style="text-decoration:underline;color: white;">{{categoria.nombre}}</a> &nbsp;&nbsp;&nbsp;
+            {% endfor %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
