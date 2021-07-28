@@ -5,7 +5,11 @@
 ,
 <div class="container">
     <div style="float: right; width: 15rem;">
+        {% if request.user.is_authenticated %}
         {% include 'carro/widget.html' %}
+        {% else %}
+        <h4 style="background-color:rgba(24, 64, 8, 0.8);color: white;">Debes iniciar sesion para realizar compras</h4>
+        {% endif %}
     </div>
     <div class="row">
         {% for producto in productos %}

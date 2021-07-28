@@ -13,7 +13,7 @@ urlpatterns = [
     path('contacto/',include('contacto.urls')),
     path('tienda/',include('tienda.urls')),
     path('carro/',include('carro.urls')),
-    path('registro/',include('registro.urls')),
+    path('cuenta/',include('registro.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
 
 ]
