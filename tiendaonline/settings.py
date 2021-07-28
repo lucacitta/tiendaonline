@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.sites',
     'django.contrib.staticfiles',
     'tiendaonlineapp',
     'servicios',
@@ -46,7 +45,6 @@ INSTALLED_APPS = [
     'tienda',
     'carro',
     'registro',
-    'registration',
 ]
 
 MIDDLEWARE = [
