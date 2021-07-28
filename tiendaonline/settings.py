@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'tiendaonlineapp',
     'servicios',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'tienda',
     'carro',
     'registro',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,6 @@ EMAIL_USE_TLS=True
 EMAIL_PORT=587
 EMAIL_HOST_USER='lucacitta@gmail.com'
 EMAIL_HOST_PASSWORD='43089004867895156174491'
+
+# accounts
+REGISTRAION_AUTO_LOGIN=True

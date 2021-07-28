@@ -15,6 +15,6 @@ urlpatterns = [
     path('carro/',include('carro.urls')),
     path('registro/',include('registro.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+
 ]
 
