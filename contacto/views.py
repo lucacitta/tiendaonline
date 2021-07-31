@@ -1,6 +1,7 @@
 from contacto.forms import FormularioContacto
 from django.shortcuts import redirect, render
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import send_mail
+from tiendaonline.settings import EMAIL_HOST_USER
 
 
 
@@ -16,7 +17,7 @@ def contacto(request):
             email=send_mail(
             f'El usuario {nombre} con email {email} envió el siguiente mensaje:',
             contenido,
-            'lucacitta@gmail.com',
+            EMAIL_HOST_USER,
             ['lucacitta@gmail.com'],
             fail_silently=False,
             )

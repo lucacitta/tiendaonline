@@ -18,7 +18,7 @@ def confirmacionPedido(request):
             pedido=''
             total=0
             for key, value in request.session['carro'].items():
-                pedido+=f'\nProducto {value.get("nombre")}, cantidad: {value.get("cantidad")}, subtotal: {value.get("cantidad")*value.get("precio")}'
+                pedido+=f'\nProducto: {value.get("nombre")}, cantidad: {value.get("cantidad")}, subtotal: {value.get("cantidad")*value.get("precio")}'
                 total+=int(value.get("cantidad"))*int(value.get("precio"))
             pedido+=f'\nTotal del pedido: {total}'
             print(pedido)
@@ -44,7 +44,7 @@ def confirmacionPedido(request):
             f'Tienes un nuevo pedido de {nombre} {apellido}.',
             mensaje,
             EMAIL_HOST_USER,
-            [EMAIL_HOST_USER],
+            ['lucacitta@gmail.com'],
             fail_silently=False,)
             limpiar_carro(request, lugar='confirmacion')
             return redirect('/tienda/confirmacionPedido/?valido')

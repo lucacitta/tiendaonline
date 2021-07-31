@@ -21,12 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-iudge3tpe8$h7xx3mn+wk9x1)zf2gip2yx#9hbod9!(x)cu&_y'
+# SECRET_KEY = 'django-insecure-iudge3tpe8$h7xx3mn+wk9x1)zf2gip2yx#9hbod9!(x)cu&_y'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-iudge3tpe8$h7xx3mn+wk9x1)zf2gip2yx#9hbod9!(x)cu&_y')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'tiendaonline.urls'
@@ -82,11 +85,20 @@ WSGI_APPLICATION = 'tiendaonline.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+} """
+
+import dj_database_url
+from decouple import config
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 
@@ -127,7 +139,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
+STATIC_DIRS=(
+    os.path.join(BASE_DIR,'static')
+)
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_URL='/media/'
 
@@ -145,8 +163,8 @@ EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_USE_TLS=True
 EMAIL_PORT=587
-EMAIL_HOST_USER='lucacitta@gmail.com'
-EMAIL_HOST_PASSWORD='43089004867895156174491'
+EMAIL_HOST_USER='lucacitta.python@gmail.com'
+EMAIL_HOST_PASSWORD='Mymamapython12'
 
 # accounts
 
