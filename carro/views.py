@@ -20,9 +20,12 @@ def restar_producto(request, producto_id):
     carro.restar_producto(producto=producto)
     return redirect('tienda')
 
-def limpiar_carro(request):
+def limpiar_carro(request, lugar='tienda'):
     carro=Carro(request)
     carro.limpiar_carro()
-    return redirect('tienda')
+    if lugar=='tienda':
+        return redirect('tienda')
+    else:
+        return redirect('tienda/confirmacionPedido/?valido')
 
 

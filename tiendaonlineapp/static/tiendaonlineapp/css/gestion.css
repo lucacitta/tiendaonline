@@ -107,6 +107,9 @@ p {
     color: rgba(255, 255, 255, 0.4);
     text-decoration: underline;
   }
+  #nombreUsuario:hover{
+    color: rgba(255, 255, 255, 0.7)!important;
+  }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
     color: #ffffff;
     text-decoration: underline;

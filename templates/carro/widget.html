@@ -34,7 +34,15 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3">Total: {{importe_total_carro}}</td>
+        {% if request.session.carro.items %}
+            <td colspan="2" class="text-center">Total: {{importe_total_carro}}</td>
+            <td colspan="1"><a class="btn btn-danger" href="{% url 'carro:limpiar' %}">Eliminar</a></td>
         </tr>
+        <tr><td colspan="3"><a class="btn btn-success" style="margin-left: 25%;" href="{% url 'confirmacionPedido'%}">Realizar pedido</a></td></tr>
+        {% else %}
+        <td colspan="3" class="text-center">Total: {{importe_total_carro}}</td>
+        {% endif %}
+
     </tfoot>
 </table>
+

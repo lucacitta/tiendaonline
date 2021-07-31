@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = [
     path('',views.tienda, name='tienda'),
+    path('confirmacionPedido/',views.confirmacionPedido,name='confirmacionPedido')
 ]
