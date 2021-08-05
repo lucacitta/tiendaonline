@@ -17,5 +17,6 @@ urlpatterns = [
     path('carro/',include('carro.urls')),
     path('cuenta/',include('registro.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

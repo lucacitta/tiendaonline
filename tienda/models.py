@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
+from tiendaonline.settings import BASE_DIR
 
 
 class CategoriaProductos(models.Model):
@@ -18,7 +19,7 @@ class Producto(models.Model):
     descripcion=models.CharField(max_length=100)
     precio=models.IntegerField()
     categoria=models.ForeignKey(CategoriaProductos, on_delete=CASCADE)
-    imagen=models.ImageField(upload_to='tienda')
+    imagen=models.ImageField(upload_to='BASE_DIR/staticfiles/tienda/img')
     updated=models.DateTimeField(auto_now_add=True)
     disponibilidad=models.BooleanField()
 
