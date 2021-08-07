@@ -3,12 +3,27 @@
 
 
 {% block content %}
+<section>
+    <div style='width:75%; margin:auto; text-align: center; color: white; background-color: 794F00;'>
+        Categorias:
+            {% for categoria in categorias %}
+                <a href="{% url 'categoria' categoria.id %}"style="text-decoration:underline;color: white;">{{categoria.nombre}}</a> &nbsp;&nbsp;&nbsp;
+            {% endfor %}
+    </div>
+</section>
 {% for post in posts %}
-<section class="page-section clearfix">
+<section class="page-section clearfix" >
     <div class="container">
         <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="">
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+            {% if post.id == 1 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/trufasNegras.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            {% if post.id == 2 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/chocolateBarraAmargo.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            {% if post.id == 3 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/atencion.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            {% if post.id == 4 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/trufasBlancas.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            {% if post.id == 5 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/brownie.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            {% if post.id == 6 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/cambioHorario.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            {% if post.id == 7 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/nuevoLocal.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            {% if post.id == 8 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static ' blog/img/chocolateBarraBlanco.jpg '%}" alt="" style="width: 70%;">{% endif %}
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="background-color: 794F00;">
                 <h2 class="section-heading mb-4">
                     <span class="section-heading-lower">{{post.titulo}}</span>
                 </h2>
@@ -24,14 +39,5 @@
 </section>
 {% endfor %}
 
-<section>
-    <div style='width:75%; margin:auto; text-align: center; color: white;'>
-        Categorias:
-        {% for post in posts %}
-            {% for categoria in post.categorias.all %}
-                <a href="{% url 'categoria' categoria.id %}"style="text-decoration:underline;color: white;">{{categoria.nombre}}</a> &nbsp;&nbsp;&nbsp;
-            {% endfor %}
-        {% endfor %}
-    </div>
-</section>
+
 {% endblock %}

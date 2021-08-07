@@ -7,11 +7,13 @@
 <section class="page-section clearfix">
     <div class="container">
         <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-                src="{{servicio.imagen.url}}" alt="" style="width: 50%">
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4">
+            {% if servicio.id == 1 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"src="{% static ' servicios/img/ChocolateAmargo.jpeg '%}" alt="" style="width: 50%">{% endif %}
+            {% if servicio.id == 2 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"src="{% static ' servicios/img/barrasChocolates.jpg '%}" alt="" style="width: 50%">{% endif %}
+            {% if servicio.id == 4 %}<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"src="{% static ' servicios/img/cositasDulces.jpg '%}" alt="" style="width: 50%">{% endif %}
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded mt-0"style="background-color:794F00;">
+                <h2 class="section-heading mb-4" >
                     <span class="section-heading-lower">{{servicio.titulo}}</span>
+                    <br>
                     <span class="section-heading-upper">{{servicio.contenido}}</span>
                 </h2>
             </div>

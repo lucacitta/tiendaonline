@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 {% if request.session.carro.items %}
-<table class="table table-bordered" style="color: white;background-color: rgba(24, 64, 8, 0.8); width: 50%;margin-left: 25%; margin-top: 1rem;">
+<table class="table table-bordered" style="color: white;background-color: 794F00; width: 50%;margin-left: 25%; margin-top: 1rem;">
     <thead>
         <tr>
             <th colspan="3" class="text-center">Confirmacion del pedido</th>
@@ -31,8 +31,7 @@
     </tfoot>
 </table>
 
-<div class='contenedorFormulario'>
-
+<div class='contenedorFormulario' style="background-color: 794F00;">
     <form action="", method="POST", style="text-align: center;">
         {% csrf_token %}
         <table style="color: white; margin: 20px auto;">{{form_venta.as_table}}
