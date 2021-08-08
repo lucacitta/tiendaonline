@@ -7,8 +7,9 @@ from tiendaonline.settings import EMAIL_HOST_USER
 
 def tienda(request):
     productos=Producto.objects.all()
-    categorias=CategoriaProductos.objects.all()
     return render(request, 'tienda/tienda.html',{'productos':productos})
+
+
 
 def confirmacionPedido(request):
     form_venta=FormularioVenta()
