@@ -1,5 +1,5 @@
 from django.db import models
-from tiendaonline.settings import MEDIA_ROOT
+
 
 class Servicio(models.Model):
     titulo=models.CharField(max_length=50)

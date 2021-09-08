@@ -47,6 +47,7 @@ def confirmacionPedido(request):
             EMAIL_HOST_USER,
             ['lucacitta@gmail.com'],
             fail_silently=False,)
+
             limpiar_carro(request, lugar='confirmacion')
             return redirect('/tienda/confirmacionPedido/?valido')
     return render(request,'tienda/confirmacion.html',{'form_venta':form_venta})
